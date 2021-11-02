@@ -114,7 +114,7 @@ const LineProductList = ({ products, onFetchProduct, lineProduct, onFetchLinePro
                                 <tr>
                                     <th className="col-md-1">Mã SP</th>
                                     <th className="col-md-4">Tên</th>
-                                    <th className="col-sm-1">Giới tính</th>
+                                    <th className="col-sm-1">Số lượng tồn</th>
                                     <th className="col-md-1">Giá</th>
                                     <th className="col-md-2">Danh mục</th>
                                     <th className="col-md-1">Hãng</th>
@@ -125,7 +125,7 @@ const LineProductList = ({ products, onFetchProduct, lineProduct, onFetchLinePro
                                 <tr>
                                     <th className="col-md-1">Mã SP</th>
                                     <th className="col-md-4">Tên</th>
-                                    <th className="col-sm-1">Giới tính</th>
+                                    <th className="col-sm-1">Số lượng tồn</th>
                                     <th className="col-md-1">Giá</th>
                                     <th className="col-md-2">Danh mục</th>
                                     <th className="col-md-1">Hãng</th>

@@ -25,7 +25,7 @@ function SideBar() {
             <li className="nav-item">
                 <Link to="/" className="nav-link" >
                     <i className="fas fa-list"></i>
-                    <span>Dòng nước hoa</span>
+                    <span>Sản phẩm</span>
                 </Link>
             </li>
             {/* <li className="nav-item">
@@ -136,12 +136,12 @@ function SideBar() {
                 </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link className="nav-link" to="/returnOrder">
                     <i className="fas fa-undo-alt"></i>
                     <span>Trả hàng</span>
                 </Link>
-            </li>
+            </li> */}
 
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider" />

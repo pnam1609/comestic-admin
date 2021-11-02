@@ -66,7 +66,7 @@ export const Login = (props) => {
                 return res
             })
             console.log(res);
-            if (res.status === 200) {
+            if (res !== undefined) {
                 localStorage.setItem("employee", JSON.stringify(res.data))
                 props.history.push('/')
             } else {

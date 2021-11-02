@@ -12,12 +12,26 @@ import { actAddPromotionRequest, actDeleteDetailPromotionReq, actUpdatePromotion
 import { getTokenEmployee } from './../../actions/getNV'
 import { v4 as uuidv4 } from 'uuid'
 
-const MySwal = withReactContent(Swal)
+
 
 // const { v4: uuidv4 } = require('uuid');
 // const uuidv4 = require("uuid/v4")
 
+// import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+// import arrayMove from 'array-move';
 
+// const SortableItem = SortableElement(({ value }) => <li>{value}</li>);
+
+// const SortableList = SortableContainer(({ items }) => {
+//   return (
+//     <ul>
+//       {items.map((value, index) => (
+//         <SortableItem key={`item-${value}`} index={index} value={value} />
+//       ))}
+//     </ul>
+//   );
+// });
+const MySwal = withReactContent(Swal)
 
 export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, history, onUpdatePromotion, onDelDetailPromotion }) => {
   //state check kiểm tra là thêm hay sửa
@@ -54,14 +68,14 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
         var receiptDetail = await callApi(`promotion/${match.params.id}`, 'GET', null, `Bearer ${getTokenEmployee()}`).then(res => {
           return res.data
         });
-        setValue(()=>{
+        setValue(() => {
           var object = {
             ...receiptDetail,
             startDate: receiptDetail.startDate,
             endDate: receiptDetail.endDate
           }
 
-          object.detailPromotionList.forEach((ele,index)=>{
+          object.detailPromotionList.forEach((ele, index) => {
             ele.id = index
           })
           return object
@@ -210,6 +224,21 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
     }
     // console.log(value);
   }
+  // const [keyWord, setKeyWord] = useState("")
+  // const arrayTest = [
+  //   {
+  //     value: 1,
+  //     name: "small"
+  //   },
+  //   {
+  //     value: 2,
+  //     name: "medium"
+  //   },
+  //   {
+  //     value: 3,
+  //     name: "large"
+  //   }
+  // ]
   return (
 
     <div id="wrapper" >
@@ -220,6 +249,7 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
           <div className="container" >
             {/* style ={{marginLeft: 220}} */}
 
+
             <div className="py-3 mb-20" >
               <h3 className="m-0 font-weight-bold text-primary" style={{ textAlign: 'center' }}>
                 {checkAdd ? "Thêm đợt khuyến mãi" : "Sửa đợt khuyến mãi"}
@@ -228,6 +258,7 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
 
 
             <form onSubmit={e => handleSubmit(e)} style={{ marginBottom: 200 }}>
+              {/* <SortableList items={this.state.items} onSortEnd={this.onSortEnd} /> */}
               {/* Mã dòng sản phẩm  */}
               {/* <div className="form-group">
                 <label className="control-label" htmlFor="promotionId">Mã khuyến mãi(<small className="text-danger">*</small>)</label>
@@ -291,7 +322,7 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
                 </div>
 
                 {
-                  value.detailPromotionList.map((ct,id) => {
+                  value.detailPromotionList.map((ct, id) => {
                     // console.log(validationMsgCT_DDH);
                     let index = validationMsgCT_DDH.findIndex(x => x.id === ct.id)
                     return <div key={id} className="row" style={{ marginBottom: 15 }}>
@@ -302,6 +333,17 @@ export const PromotionActionPage = ({ match, onFetchEmployee, onAddPromotion, hi
                           name="productId"
                           className="form-control" placeholder="Mã dòng sản phẩm"
                           disabled={checkAdd ? false : (ct.checkForAdd === true ? false : true)} />
+
+                        {/* <SelectSearch
+                          options={countries}
+                          search
+                          onChange={e => handleChangeCTKM(e, ct.id)}
+                          value={ct.productId}
+                          name="productId"
+                          filterOptions={ct.productId}
+                          className="form-control" placeholder="Mã dòng sản phẩm"
+                          disabled={checkAdd ? false : (ct.checkForAdd === true ? false : true)}
+                        /> */}
                         <small className="form-text text-danger">
                           {index === -1 ? "" : validationMsgCT_DDH[index].productId}
                         </small>
