@@ -1,18 +1,21 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import "./Order.css"
 import OrderPage from './OrderPage'
 
-
-
-
-export const Order = (props) => {
+export const Order = () => {
     const itemRef = useRef([])
-    const lineRef = useRef(null)
+    const lineRef = useRef()
     const [status, setStatus] = useState(0)
     var history = useHistory()
+
+    useEffect(() => {
+        console.log(itemRef);
+        lineRef.current.style.left = itemRef.current[0].offsetLeft + "px";
+        lineRef.current.style.width = itemRef.current[0].offsetWidth + "px";
+    }, [])
 
     function handleClick(e) {
         var ele = e.target // lấy ra element để so sanh có có phải là element khi click vô element con hay k
@@ -55,11 +58,7 @@ export const Order = (props) => {
                     Bị hủy
                 </div>
                 <div className="line" ref={lineRef} ></div>
-                {/* style={{left : itemRef.current[0].offsetLeft,width : itemRef.current[0].offsetWidth}} */}
-
             </div>
-            
-            {/* <!-- Tab content --> */}
             <div className="tab-content" style={{minHeight: 550}}>
                 <OrderPage status={status} history={history}/>
             </div>

@@ -15,7 +15,6 @@ import EmployeePage from "./Pages/EmployeePage/EmployeePage";
 import EmployeeActionPage from "./Pages/EmployeePage/EmployeeActionPage";
 import PromotionPage from './Pages/PromotionPage/PromotionPage'
 import PromotionActionPage from "./Pages/PromotionPage/PromotionActionPage";
-import Revenue from './Pages/Statistic/Revenue'
 import BrandPage from './Pages/BrandPage/BrandPage'
 import BrandActionPage from "./Pages/BrandPage/BrandActionPage";
 import ShippingCompanyPage from './Pages/ShippingCompanyPage/ShippingCompanyPage'
@@ -25,6 +24,9 @@ import ShipperActionPage from "./Pages/ShipperPage/ShipperActionPage";
 import UserPage from './Pages/UserPage/UserPage'
 import UserActionPage from "./Pages/UserPage/UserActionPage";
 import OrderUserActionPage from "./Pages/OrderUserPage/OrderUserActionPage";
+import Revenue from './Pages/Statistic/Revenue/Revenue'
+import Profit from './Pages/Statistic/Profit/Profit'
+
 
 const routes = [
     {
@@ -205,6 +207,11 @@ const routes = [
         path: '/revenue',
         exact: true,
         main: () => <Revenue />
+    },
+    {
+        path: '/profit',
+        exact: true,
+        main: () => <Profit />
     },
     {
         path: '',

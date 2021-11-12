@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import "./../../assets/css/sb-admin-2.min.css"
 import { getNV } from '../../actions/getNV'
@@ -227,4 +227,4 @@ function TopBar(props) {
     )
 }
 
-export default TopBar
+export default memo(TopBar)

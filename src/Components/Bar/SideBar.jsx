@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 import "./../../assets/css/sb-admin-2.min.css"
 
@@ -162,8 +162,7 @@ function SideBar() {
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Thống kê:</h6>
                         <Link className="collapse-item" to="/revenue">Thống kê doanh thu</Link>
-                        {/* <div className="collapse-divider"></div>
-                        <h6 className="collapse-header">Other Pages:</h6> */}
+                        <Link className="collapse-item" to="/profit">Thống kê lợi nhuận</Link>
                     </div>
                 </div>
             </li>
@@ -182,4 +181,4 @@ function SideBar() {
     )
 }
 
-export default SideBar
+export default memo(SideBar)
